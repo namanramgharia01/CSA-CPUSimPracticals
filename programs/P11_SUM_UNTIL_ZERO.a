@@ -1,0 +1,14 @@
+; Practical 11 : Sum of integers until zero is read
+; Machine      : BasicComputer.cpu (Mano's Basic Computer)
+LOOP:   INP             ; AC <- next number
+        SZA             ; if AC != 0 do not skip
+        BUN ADDIT       ; go and add it
+        BUN DONE        ; AC = 0: finish
+ADDIT:  ADD SUM         ; AC <- AC + SUM
+        STA SUM         ; SUM <- AC
+        BUN LOOP        ; read next number
+DONE:   LDA SUM         ; AC <- SUM
+        OUT             ; display sum
+        HLT
+
+SUM:    .data 1 0       ; running total

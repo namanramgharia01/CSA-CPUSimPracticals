@@ -1,0 +1,13 @@
+; Practical 10 : Sum of integers until a negative number is read
+; Machine      : BasicComputer.cpu (Mano's Basic Computer)
+LOOP:   INP             ; AC <- next number
+        SPA             ; if AC >= 0 skip exit branch
+        BUN DONE        ; AC < 0: leave loop
+        ADD SUM         ; AC <- AC + SUM
+        STA SUM         ; SUM <- AC
+        BUN LOOP        ; read next number
+DONE:   LDA SUM         ; AC <- SUM
+        OUT             ; display sum
+        HLT
+
+SUM:    .data 1 0       ; running total
